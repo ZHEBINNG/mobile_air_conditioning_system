@@ -13,13 +13,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void sendSignalToPacUnit() {
     // Simulating the signal sending process
-    // You can add your logic for sending signals to the PAC unit here
     print('Signal sent to PAC unit');
   }
 
   void processSignalInPacUnit() {
     // Simulating the signal processing in PAC unit
-    // You can add your logic for processing signals in the PAC unit here
     print('PAC unit processes the signal');
   }
 
@@ -92,22 +90,18 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void showMessage(String message) {
-    // You can replace this with your own logic to display messages
     print(message);
   }
 
   void showTemperature() {
-    // You can replace this with your own logic to display the current temperature
     print('Current Temperature: $temperature');
   }
 
   void showFanSpeed() {
-    // You can replace this with your own logic to display the current fan speed
     print('Current Fan Speed: $fanSpeed');
   }
 
   void showAirSwingStatus() {
-    // You can replace this with your own logic to display the air swing status
     print('Air Swing is ${isAirSwingOn ? 'running' : 'idle'}');
   }
 
