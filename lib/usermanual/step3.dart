@@ -56,7 +56,7 @@ class _Step3State extends State<Step3> {
                 ),
                 SizedBox(height: 20),
                 Container(
-                  width: 250, // Adjust the width as needed
+                  width: 200, // Adjust the width as needed
                   child: TextField(
                     controller: _passwordController,
                     decoration: InputDecoration(
