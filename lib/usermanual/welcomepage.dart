@@ -6,30 +6,47 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Welcome'),
+        title: const Text('User Manual'),
         centerTitle: true,
-        backgroundColor: Colors.blue, // Set app bar background color
+        backgroundColor: Colors.lightBlue,
+        elevation: 0,
       ),
       body: Stack(
         children: [
           Container(
-            color: Colors.blue.shade50, // Set the background color
-            child: Center(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [Colors.indigo.shade400, Color.fromARGB(255, 57, 13, 139)],
+              ),
+            ),
+            child: const Center(
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center, // Center the text horizontally
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Text(
-                      'Welcome to the User Manual!',
+                    Icon(Icons.ac_unit, size: 80, color: Colors.white),
+                    SizedBox(height: 20),
+                    Text(
+                      'Welcome to the Mobile Air Conditioning System User Manual',
                       style: TextStyle(
-                        fontSize: 18.0,
-                        color: Colors.black, // Set text color to black
+                        fontSize: 24.0,
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        fontStyle: FontStyle.italic,
                       ),
-                      textAlign: TextAlign.center, // Center the text
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      'Explore step-by-step guides to set up and use your device.',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.white70,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
                   ],
                 ),
@@ -37,16 +54,23 @@ class WelcomePage extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 16.0,
-            right: 16.0,
-            child: ElevatedButton(
+            bottom: 30.0,
+            left: 30.0,
+            right: 30.0,
+            child: ElevatedButton.icon(
               onPressed: () {
-                // Navigate to Step1
                 Navigator.push(context, MaterialPageRoute(builder: (context) => Step1()));
               },
-              child: const Text('Next'),
+              icon: const Icon(Icons.arrow_forward),
+              label: const Text('Get Started'),
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white, backgroundColor: Colors.blue, // Set text color
+                primary: Colors.white,
+                onPrimary: Colors.deepPurple,
+                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
           ),

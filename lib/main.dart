@@ -7,7 +7,7 @@ import 'package:mobile_air_conditioning_system/usermanual/step2.dart';
 import 'package:mobile_air_conditioning_system/usermanual/step3.dart';
 import 'package:mobile_air_conditioning_system/usermanual/step4.dart';
 import 'package:mobile_air_conditioning_system/pages/home.dart';
-// import 'package:mobile_air_conditioning_system/pages/connection.dart';
+import 'package:mobile_air_conditioning_system/pages/connection.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         '/usermanual/step2': (context) => Step2(),
         '/usermanual/step3': (context) => Step3(),
         '/usermanual/step4': (context) => Step4(),
-        // '/connection': (context) => ConnectionScreen(),
+        '/connection': (context) => ConnectionScreen(),
       },
     );
   }
@@ -46,7 +46,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
         index: _currentIndex,
         children: [
           HomeScreen(),
-          // ConnectionScreen(),
+          ConnectionScreen(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

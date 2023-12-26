@@ -6,29 +6,46 @@ class Step1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Step 1'),
+        title: const Text('Step 1: Power On'),
         centerTitle: true,
-        backgroundColor: Colors.blue, // Set app bar background color
+        backgroundColor: Colors.lightBlue,
+        elevation: 0,
       ),
       body: Stack(
         children: [
           Container(
-            color: Colors.blue.shade50, // Set the background color
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [Colors.lightBlue, Colors.indigo, Colors.blue.shade800],
+              ),
+            ),
             child: const Center(
               child: Padding(
                 padding: EdgeInsets.all(16.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Icon(Icons.power_settings_new, size: 80, color: Colors.white),
+                    SizedBox(height: 20),
                     Text(
-                      'Switch on the portable air conditioner power supply',
+                      '1. Switch on the Portable Air Conditioner Power Supply',
                       style: TextStyle(
-                        fontSize: 18.0,
-                        color: Colors.black, // Set text color to black
+                        fontSize: 24.0,
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        fontStyle: FontStyle.italic,
                       ),
-                      textAlign: TextAlign.center, // Center the text
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      'Ensure the power supply is connected and turn on the device.',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        color: Colors.white70,
+                      ),
+                      textAlign: TextAlign.center,
                     ),
                   ],
                 ),
@@ -36,16 +53,24 @@ class Step1 extends StatelessWidget {
             ),
           ),
           Positioned(
-            bottom: 16.0,
-            right: 16.0,
-            child: ElevatedButton(
+            bottom: 30.0,
+            left: 30.0,
+            right: 30.0,
+            child: ElevatedButton.icon(
               onPressed: () {
                 // Navigate to Step2
                 Navigator.push(context, MaterialPageRoute(builder: (context) => Step2()));
               },
-              child: const Text('Next'),
+              icon: const Icon(Icons.arrow_forward),
+              label: const Text('Next'),
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white, backgroundColor: Colors.blue, // Set text color
+                primary: Colors.white,
+                onPrimary: Colors.lightBlue,
+                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ),
           ),

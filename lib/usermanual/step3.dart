@@ -13,64 +13,96 @@ class _Step3State extends State<Step3> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Step 3'),
+        title: const Text('Step 3: Bluetooth Pairing Request'),
         centerTitle: true,
-        backgroundColor: Colors.blue, // Set app bar background color
+        backgroundColor: Colors.lightBlue, // Set app bar background color
+        elevation: 0, // Remove app bar shadow
       ),
-      body: Stack(
-        children: [
-          Container(
-            color: Colors.blue.shade50, // Set the background color
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Bluetooth Pairing Request',
-                      style: TextStyle(
-                        fontSize: 20.0, // Set font size to be larger
-                        fontWeight: FontWeight.bold, // Make it bold
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [Colors.lightBlue, Colors.indigo, Colors.blue.shade800],
+          ),
+        ),
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.bluetooth,
+                  size: 100,
+                  color: Colors.white,
+                ),
+                SizedBox(height: 20),
+                Text(
+                  'Bluetooth Pairing Request',
+                  style: TextStyle(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  'AC1 would like to pair with your device.',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    color: Colors.white,
+                  ),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  width: 250, // Adjust the width as needed
+                  child: TextField(
+                    controller: _passwordController,
+                    decoration: InputDecoration(
+                      labelText: 'Enter Password',
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide: BorderSide.none,
                       ),
                     ),
-                    const Text('AC1 would like to pair with your device.'),
-                    TextField(
-                      controller: _passwordController,
-                      decoration: const InputDecoration(labelText: 'Enter Password'),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        // Navigate back to Step2
+                        Navigator.pop(context);
+                      },
+                      child: Text('Cancel'),
+                      style: ElevatedButton.styleFrom(primary: Colors.red),
                     ),
-                    SizedBox(height: 20.0),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            // Navigate back to Step2
-                            Navigator.pop(context);
-                          },
-                          child: const Text('Cancel'),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {
-                            // Check password and navigate accordingly
-                            String enteredPassword = _passwordController.text;
-                            if (enteredPassword == '1234') {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => Step4()));
-                            } else {
-                              // Show password incorrect message
-                              // You can display a snackbar or any other UI feedback
-                            }
-                          },
-                          child: const Text('Pair'),
-                        ),
-                      ],
+                    SizedBox(width: 20),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Check password and navigate accordingly
+                        String enteredPassword = _passwordController.text;
+                        if (enteredPassword == '1234') {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => Step4()));
+                        } else {
+                          // Show password incorrect message
+                          // You can display a snackbar or any other UI feedback
+                        }
+                      },
+                      child: Text('Pair'),
+                      style: ElevatedButton.styleFrom(primary: Colors.lightBlue),
                     ),
                   ],
                 ),
-              ),
+              ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
