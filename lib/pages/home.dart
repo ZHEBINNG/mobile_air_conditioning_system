@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
     sendSignalToPacUnit();
     processSignalInPacUnit();
     setState(() {
-      temperature = (temperature < 32) ? temperature + 1 : 32;
+      temperature = (temperature < 30) ? temperature + 1 : 30;
     });
     showTemperature();
   }
