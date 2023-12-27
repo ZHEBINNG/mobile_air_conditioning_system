@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mobile_air_conditioning_system/usermanual/step1.dart';
 
 class WelcomePage extends StatelessWidget {
+  const WelcomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,8 +66,7 @@ class WelcomePage extends StatelessWidget {
               icon: const Icon(Icons.arrow_forward),
               label: const Text('Get Started'),
               style: ElevatedButton.styleFrom(
-                primary: Colors.white,
-                onPrimary: Colors.deepPurple,
+                foregroundColor: Colors.deepPurple, backgroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),

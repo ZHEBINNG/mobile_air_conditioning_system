@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 class ConnectionScreen extends StatelessWidget {
+  const ConnectionScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Bluetooth Connection'),
-        backgroundColor: Colors.lightBlue, // Set app bar background color
-        elevation: 0, // Remove app bar shadow
+        backgroundColor: Colors.lightBlue, 
+        elevation: 0, 
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -38,11 +40,9 @@ class ConnectionScreen extends StatelessWidget {
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  // Implement Bluetooth scanning logic here
-                  // For simplicity, let's just print a message
+                  // can Implement Bluetooth scanning logic here
                   print('Scanning for devices...');
                 },
-                child: const Text('Scan for Devices'),
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                   backgroundColor: Colors.white,
@@ -51,6 +51,7 @@ class ConnectionScreen extends StatelessWidget {
                   ),
                   textStyle: const TextStyle(fontSize: 18, color: Colors.lightBlue),
                 ),
+                child: const Text('Scan for Devices'),
               ),
             ],
           ),

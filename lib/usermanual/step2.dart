@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_air_conditioning_system/usermanual/step3.dart';
 
 class Step2 extends StatelessWidget {
-  // Dummy list of available Bluetooth devices (replace with actual devices)
+  // random list of available Bluetooth devices (replace with actual devices)
   final List<String> availableDevices = ['Device 1', 'Device 2', 'Device 3'];
 
   @override
@@ -25,10 +25,10 @@ class Step2 extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 40),
-            Icon(Icons.bluetooth, size: 100, color: Colors.white),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 40),
+            const Icon(Icons.bluetooth, size: 100, color: Colors.white),
+            const SizedBox(height: 20),
+            const Text(
               'Available Bluetooth Devices',
               style: TextStyle(
                 fontSize: 24.0,
@@ -36,25 +36,24 @@ class Step2 extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
-              height: 200, // Adjust the height as needed
+              height: 200, 
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
               ),
-              margin: EdgeInsets.symmetric(horizontal: 20),
+              margin: const EdgeInsets.symmetric(horizontal: 20),
               child: ListView.builder(
                 itemCount: availableDevices.length,
                 itemBuilder: (context, index) {
                   return ListTile(
                     title: Text(
                       availableDevices[index],
-                      style: TextStyle(color: Colors.black),
+                      style: const TextStyle(color: Colors.black),
                     ),
-                    // Add onTap functionality for device selection if needed
                     onTap: () {
-                      // Handle device selection here
+                      // if any device selected 
                     },
                   );
                 },
@@ -69,7 +68,7 @@ class Step2 extends StatelessWidget {
           Navigator.push(context, MaterialPageRoute(builder: (context) => Step3()));
         },
         backgroundColor: Colors.lightBlue,
-        child: Icon(Icons.arrow_forward),
+        child: const Icon(Icons.arrow_forward),
       ),
     );
   }

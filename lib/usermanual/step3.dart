@@ -7,7 +7,7 @@ class Step3 extends StatefulWidget {
 }
 
 class _Step3State extends State<Step3> {
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +15,8 @@ class _Step3State extends State<Step3> {
       appBar: AppBar(
         title: const Text('Step 3: Bluetooth Pairing Request'),
         centerTitle: true,
-        backgroundColor: Colors.lightBlue, // Set app bar background color
-        elevation: 0, // Remove app bar shadow
+        backgroundColor: Colors.lightBlue, 
+        elevation: 0, 
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -29,7 +29,7 @@ class _Step3State extends State<Step3> {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
-            child: SingleChildScrollView( // Wrap with SingleChildScrollView
+            child: SingleChildScrollView( 
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -56,8 +56,8 @@ class _Step3State extends State<Step3> {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  Container(
-                    width: 200, // Adjust the width as needed
+                  SizedBox(
+                    width: 200, 
                     child: TextField(
                       controller: _passwordController,
                       decoration: InputDecoration(
@@ -80,8 +80,8 @@ class _Step3State extends State<Step3> {
                           // Navigate back to Step2
                           Navigator.pop(context);
                         },
-                        child: const Text('Cancel'),
                         style: ElevatedButton.styleFrom(primary: Colors.red),
+                        child: const Text('Cancel'),
                       ),
                       const SizedBox(width: 20),
                       ElevatedButton(
@@ -95,12 +95,11 @@ class _Step3State extends State<Step3> {
                                     builder: (context) => Step4()));
                           } else {
                             // Show password incorrect message
-                            // You can display a snackbar or any other UI feedback
                           }
                         },
-                        child: const Text('Pair'),
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.lightBlue),
+                        child: const Text('Pair'),
                       ),
                     ],
                   ),

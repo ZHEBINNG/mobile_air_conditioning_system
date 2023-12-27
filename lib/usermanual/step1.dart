@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mobile_air_conditioning_system/usermanual/step2.dart';
 
 class Step1 extends StatelessWidget {
+  const Step1({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,8 +66,7 @@ class Step1 extends StatelessWidget {
               icon: const Icon(Icons.arrow_forward),
               label: const Text('Next'),
               style: ElevatedButton.styleFrom(
-                primary: Colors.white,
-                onPrimary: Colors.lightBlue,
+                foregroundColor: Colors.lightBlue, backgroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),
