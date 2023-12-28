@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_air_conditioning_system/pages/home.dart';
 
 class Step4 extends StatelessWidget {
   @override
@@ -7,8 +8,8 @@ class Step4 extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Step 4: Connection Established'),
         centerTitle: true,
-        backgroundColor: Colors.lightBlue, 
-        elevation: 0,
+        backgroundColor: Colors.lightBlue, // Set app bar background color
+        elevation: 0, // Remove app bar shadow
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -56,6 +57,7 @@ class Step4 extends StatelessWidget {
                       // Navigate to HomeScreen
                       Navigator.pushNamed(context, '/home');
                     },
+                    child: const Text('Done'),
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                       backgroundColor: Colors.white,
@@ -64,7 +66,6 @@ class Step4 extends StatelessWidget {
                       ),
                       textStyle: const TextStyle(fontSize: 18, color: Colors.lightBlue),
                     ),
-                    child: const Text('Done'),
                   ),
                 ),
               ],

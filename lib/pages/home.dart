@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,8 +15,6 @@ class MyApp extends StatelessWidget {
 }
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -201,7 +197,7 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Icon(icon, color: Colors.white, size: 30),
-                Center( 
+                Center( // Center the label
                   child: Text(
                     title,
                     style: const TextStyle(color: Colors.white, fontSize: 20),
