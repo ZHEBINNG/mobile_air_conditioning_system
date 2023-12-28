@@ -118,23 +118,17 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'),
+        title: Text('Home'),
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       ),
       backgroundColor: Colors.blueGrey[900],
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center, // Center-align items
           children: [
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             _buildAcUnitListView(),
-            const SizedBox(height: 20),
-            const Center( // Center the labels
-              child: Text(
-                'Actions',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
-              ),
-            ),
+            SizedBox(height: 20),
+            Text('Actions', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white)),
             _buildControlTile('Power', isPacUnitOn, Icons.power_settings_new, onToggle: () {
               setState(() {
                 isPacUnitOn = !isPacUnitOn;
@@ -143,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 }
               });
             }),
-            _buildControlTile('  Temperature', temperature, Icons.thermostat_outlined, onIncrease: increaseTemperature, onDecrease: decreaseTemperature),
+            _buildControlTile('Temperature', temperature, Icons.thermostat_outlined, onIncrease: increaseTemperature, onDecrease: decreaseTemperature),
             _buildControlTile('Fan Speed', fanSpeed, Icons.toys, onIncrease: increaseFanSpeed, onDecrease: decreaseFanSpeed),
             _buildControlTile('Air Swing', isAirSwingOn, Icons.air, onToggle: toggleAirSwing),
           ],
@@ -153,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildAcUnitListView() {
-    return SizedBox(
+    return Container(
       height: 60,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -192,17 +186,12 @@ class _HomeScreenState extends State<HomeScreen> {
           borderRadius: BorderRadius.circular(10),
           onTap: () {},
           child: Padding(
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.all(16),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Icon(icon, color: Colors.white, size: 30),
-                Center( // Center the label
-                  child: Text(
-                    title,
-                    style: const TextStyle(color: Colors.white, fontSize: 20),
-                  ),
-                ),
+                Text(title, style: TextStyle(color: Colors.white, fontSize: 20)),
                 if (onToggle != null)
                   Switch(
                     value: value,
@@ -216,12 +205,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       IconButton(
-                        icon: const Icon(Icons.remove, color: Colors.white),
+                        icon: Icon(Icons.remove, color: Colors.white),
                         onPressed: onDecrease,
                       ),
-                      Text('$value', style: const TextStyle(color: Colors.white, fontSize: 20)),
+                      Text('$value', style: TextStyle(color: Colors.white, fontSize: 20)),
                       IconButton(
-                        icon: const Icon(Icons.add, color: Colors.white),
+                        icon: Icon(Icons.add, color: Colors.white),
                         onPressed: onIncrease,
                       ),
                     ],
