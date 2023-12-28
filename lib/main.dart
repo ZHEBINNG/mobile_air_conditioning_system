@@ -1,3 +1,5 @@
+// main.dart
+
 import 'package:flutter/material.dart';
 import 'package:mobile_air_conditioning_system/usermanual/welcomepage.dart';
 import 'package:mobile_air_conditioning_system/usermanual/step1.dart';
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/usermanual/welcome',
       routes: {
         '/home': (context) => BottomNavigation(),
-        '/usermanual/welcome': (context) => WelcomePage(),
+         '/usermanual/welcome': (context) => WelcomePage(),
         '/usermanual/step1': (context) => Step1(),
         '/usermanual/step2': (context) => Step2(),
         '/usermanual/step3': (context) => Step3(),
