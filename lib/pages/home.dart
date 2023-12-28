@@ -128,12 +128,12 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.blueGrey[900],
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center, 
+          crossAxisAlignment: CrossAxisAlignment.center, // Center-align items
           children: [
             const SizedBox(height: 20),
             _buildAcUnitListView(),
             const SizedBox(height: 20),
-            const Center( 
+            const Center( // Center the labels
               child: Text(
                 'Actions',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
