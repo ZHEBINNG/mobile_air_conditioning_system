@@ -98,7 +98,7 @@ class _Step3State extends State<Step3> {
                               }
                             },
                             child: const Text('Pair'),
-                            style: ElevatedButton.styleFrom(primary: Colors.lightBlue),
+                            style: ElevatedButton.styleFrom(backgroundColor: Colors.lightBlue),
                           ),
                         ],
                       ),
