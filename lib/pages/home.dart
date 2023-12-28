@@ -118,17 +118,17 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title: const Text('Home'),
         backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       ),
       backgroundColor: Colors.blueGrey[900],
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             _buildAcUnitListView(),
-            SizedBox(height: 20),
-            Text('Actions', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white)),
+            const SizedBox(height: 20),
+            const Text('Actions', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white)),
             _buildControlTile('Power', isPacUnitOn, Icons.power_settings_new, onToggle: () {
               setState(() {
                 isPacUnitOn = !isPacUnitOn;
@@ -186,12 +186,12 @@ class _HomeScreenState extends State<HomeScreen> {
           borderRadius: BorderRadius.circular(10),
           onTap: () {},
           child: Padding(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Icon(icon, color: Colors.white, size: 30),
-                Text(title, style: TextStyle(color: Colors.white, fontSize: 20)),
+                Text(title, style: const TextStyle(color: Colors.white, fontSize: 20)),
                 if (onToggle != null)
                   Switch(
                     value: value,
@@ -205,12 +205,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       IconButton(
-                        icon: Icon(Icons.remove, color: Colors.white),
+                        icon: const Icon(Icons.remove, color: Colors.white),
                         onPressed: onDecrease,
                       ),
-                      Text('$value', style: TextStyle(color: Colors.white, fontSize: 20)),
+                      Text('$value', style: const TextStyle(color: Colors.white, fontSize: 20)),
                       IconButton(
-                        icon: Icon(Icons.add, color: Colors.white),
+                        icon: const Icon(Icons.add, color: Colors.white),
                         onPressed: onIncrease,
                       ),
                     ],

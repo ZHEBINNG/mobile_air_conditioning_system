@@ -6,8 +6,8 @@ class ConnectionScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Bluetooth Connection'),
-        backgroundColor: Colors.lightBlue, // Set app bar background color
-        elevation: 0, // Remove app bar shadow
+        backgroundColor: Colors.lightBlue,
+        elevation: 0,
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -39,7 +39,7 @@ class ConnectionScreen extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   // Implement Bluetooth scanning logic here
-                  // For simplicity, let's just print a message
+                  // print a message to show scanning logic
                   print('Scanning for devices...');
                 },
                 child: const Text('Scan for Devices'),

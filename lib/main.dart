@@ -1,4 +1,3 @@
-// main.dart
 
 import 'package:flutter/material.dart';
 import 'package:mobile_air_conditioning_system/usermanual/welcomepage.dart';

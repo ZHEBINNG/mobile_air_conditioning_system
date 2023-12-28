@@ -8,8 +8,8 @@ class Step4 extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Step 4: Connection Established'),
         centerTitle: true,
-        backgroundColor: Colors.lightBlue, // Set app bar background color
-        elevation: 0, // Remove app bar shadow
+        backgroundColor: Colors.lightBlue,
+        elevation: 0, 
       ),
       body: Container(
         decoration: BoxDecoration(
