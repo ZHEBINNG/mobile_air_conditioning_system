@@ -1,24 +1,6 @@
 import 'package:flutter/material.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'AC Control App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: HomeScreen(),
-    );
-  }
-}
-
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -128,12 +110,12 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.blueGrey[900],
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center, 
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 20),
             _buildAcUnitListView(),
             const SizedBox(height: 20),
-            const Center( 
+            const Center(
               child: Text(
                 'Actions',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
@@ -147,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 }
               });
             }),
-            _buildControlTile('  Temperature', temperature, Icons.thermostat_outlined, onIncrease: increaseTemperature, onDecrease: decreaseTemperature),
+            _buildControlTile('Temperature', temperature, Icons.thermostat_outlined, onIncrease: increaseTemperature, onDecrease: decreaseTemperature),
             _buildControlTile('Fan Speed', fanSpeed, Icons.toys, onIncrease: increaseFanSpeed, onDecrease: decreaseFanSpeed),
             _buildControlTile('Air Swing', isAirSwingOn, Icons.air, onToggle: toggleAirSwing),
           ],
@@ -201,7 +183,7 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Icon(icon, color: Colors.white, size: 30),
-                Center( 
+                Center(
                   child: Text(
                     title,
                     style: const TextStyle(color: Colors.white, fontSize: 20),
@@ -211,7 +193,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Switch(
                     value: value,
                     onChanged: (bool newValue) {
-                      onToggle();
+                      onToggle(); // Call the provided callback here
                     },
                     activeColor: Colors.green,
                   )
