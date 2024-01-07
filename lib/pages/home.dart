@@ -1,18 +1,5 @@
 import 'package:flutter/material.dart';
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'AC Control App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: HomeScreen(),
-    );
-  }
-}
+import 'package:mobile_air_conditioning_system/controller/controller.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -20,98 +7,20 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  HomeScreenStateController controller = HomeScreenStateController();
+
   bool isPacUnitOn = false;
   int temperature = 22;
-  int fanSpeed = 3;
+  int fanSpeed = 2;
   bool isAirSwingOn = false;
-  int selectedAcUnit = 1;
 
-  void sendSignalToPacUnit() {
-    print('Signal sent to PAC unit');
-  }
-
-  void processSignalInPacUnit() {
-    print('PAC unit processes the signal');
-  }
-
-  void turnOnPacUnit() {
-    sendSignalToPacUnit();
-    processSignalInPacUnit();
-    setState(() {
-      isPacUnitOn = true;
-    });
-    showMessage('PAC unit is turned on successfully');
-  }
-
-  void turnOffPacUnit() {
-    sendSignalToPacUnit();
-    processSignalInPacUnit();
-    setState(() {
-      isPacUnitOn = false;
-      isAirSwingOn = false;
-    });
-    showMessage('PAC unit is turned off successfully');
-  }
-
-  void increaseTemperature() {
-    sendSignalToPacUnit();
-    processSignalInPacUnit();
-    setState(() {
-      temperature = (temperature < 30) ? temperature + 1 : 30;
-    });
-    showTemperature();
-  }
-
-  void decreaseTemperature() {
-    sendSignalToPacUnit();
-    processSignalInPacUnit();
-    setState(() {
-      temperature = (temperature > 16) ? temperature - 1 : 16;
-    });
-    showTemperature();
-  }
-
-  void increaseFanSpeed() {
-    sendSignalToPacUnit();
-    processSignalInPacUnit();
-    setState(() {
-      fanSpeed = (fanSpeed < 5) ? fanSpeed + 1 : 5;
-    });
-    showFanSpeed();
-  }
-
-  void decreaseFanSpeed() {
-    sendSignalToPacUnit();
-    processSignalInPacUnit();
-    setState(() {
-      fanSpeed = (fanSpeed > 1) ? fanSpeed - 1 : 1;
-    });
-    showFanSpeed();
-  }
-
-  void toggleAirSwing() {
-    sendSignalToPacUnit();
-    processSignalInPacUnit();
-    setState(() {
-      isAirSwingOn = !isAirSwingOn;
-    });
-    showAirSwingStatus();
-  }
-
-  void showMessage(String message) {
-    print(message);
-  }
-
-  void showTemperature() {
-    print('Current Temperature: $temperature');
-  }
-
-  void showFanSpeed() {
-    print('Current Fan Speed: $fanSpeed');
-  }
-
-  void showAirSwingStatus() {
-    print('Air Swing is ${isAirSwingOn ? 'running' : 'idle'}');
+  @override
+  void initState() {
+    super.initState();
+    controller.setAirSwingStatus(isAirSwingOn);
+    controller.setPacStatus(isPacUnitOn);
+    controller.setTemperature(temperature);
+    controller.setFanSpeed(fanSpeed);
   }
 
   @override
@@ -126,73 +35,125 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             const SizedBox(height: 20),
-            _buildAcUnitListView(),
+            // _buildAcUnitListView(),
             const SizedBox(height: 20),
-            const Text('Actions', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white)),
-            _buildControlTile('Power', isPacUnitOn, Icons.power_settings_new, onToggle: () {
+            const Text('Actions',
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white)),
+            _buildControlTile('Power', isPacUnitOn, Icons.power_settings_new,
+                onToggle: () {
+              controller.changePacStatus(isPacUnitOn);
               setState(() {
-                isPacUnitOn = !isPacUnitOn;
-                if (!isPacUnitOn) {
-                  isAirSwingOn = false;
-                }
+                isPacUnitOn = controller.getPacUnitStatus();
               });
             }),
-            _buildControlTile('Temperature', temperature, Icons.thermostat_outlined, onIncrease: increaseTemperature, onDecrease: decreaseTemperature),
-            _buildControlTile('Fan Speed', fanSpeed, Icons.toys, onIncrease: increaseFanSpeed, onDecrease: decreaseFanSpeed),
-            _buildControlTile('Air Swing', isAirSwingOn, Icons.air, onToggle: toggleAirSwing),
+            _buildControlTile(
+                'Temperature', temperature, Icons.thermostat_outlined,
+                onIncrease: () {
+              controller.increaseTemperature(controller.getTemperature());
+              setState(() {
+                temperature = controller.getTemperature();
+              });
+            }, onDecrease: () {
+              controller.decreaseTemperature(controller.getTemperature());
+              setState(() {
+                temperature = controller.getTemperature();
+              });
+            }),
+            _buildControlTile('Fan Speed', fanSpeed, Icons.toys,
+                onIncrease: () {
+              controller.increaseFanSpeed(controller.getFanSpeed());
+              setState(() {
+                fanSpeed = controller.getFanSpeed();
+              });
+            }, onDecrease: () {
+              controller.decreaseFanSpeed(controller.getFanSpeed());
+              setState(() {
+                fanSpeed = controller.getFanSpeed();
+              });
+            }),
+            _buildControlTile(
+                'Air Swing', isAirSwingOn, Icons.air,
+                onToggle: () {
+              controller.toggleAirSwing(isAirSwingOn);
+              setState(() {
+                isAirSwingOn = controller.getAirSwingStatus();
+              });
+            }),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildAcUnitListView() {
-    return Container(
-      height: 60,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: 4,
-        itemBuilder: (context, index) {
-          return GestureDetector(
-            onTap: () {
-              setState(() {
-                selectedAcUnit = index + 1;
-              });
-            },
-            child: Container(
-              width: 80,
-              alignment: Alignment.center,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Icon(Icons.ac_unit, color: selectedAcUnit == index + 1 ? Colors.white : Colors.white54),
-                  Text('AC ${index + 1}', style: TextStyle(color: selectedAcUnit == index + 1 ? Colors.white : Colors.white54)),
-                ],
-              ),
-            ),
-          );
-        },
-      ),
-    );
-  }
+  // Widget _buildAcUnitListView() {
+  //   return Container(
+  //     height: 60,
+  //     child: ListView.builder(
+  //       scrollDirection: Axis.horizontal,
+  //       itemCount: 4,
+  //       itemBuilder: (context, index) {
+  //         return GestureDetector(
+  //           onTap: () {
+  //             setState(() {
+  //               controller.selectedAcUnit = index + 1;
+  //             });
+  //           },
+  //           child: Container(
+  //             width: 80,
+  //             alignment: Alignment.center,
+  //             child: Column(
+  //               mainAxisSize: MainAxisSize.min,
+  //               children: <Widget>[
+  //                 Icon(Icons.ac_unit,
+  //                     color: controller.selectedAcUnit == index + 1
+  //                         ? Colors.white
+  //                         : Colors.white54),
+  //                 Text('AC ${index + 1}',
+  //                     style: TextStyle(
+  //                         color: controller.selectedAcUnit == index + 1
+  //                             ? Colors.white
+  //                             : Colors.white54)),
+  //               ],
+  //             ),
+  //           ),
+  //         );
+  //       },
+  //     ),
+  //   );
+  // }
 
-  Widget _buildControlTile(String title, dynamic value, IconData icon, {VoidCallback? onToggle, VoidCallback? onIncrease, VoidCallback? onDecrease}) {
+  Widget _buildControlTile(String title, dynamic value, IconData icon,
+      {VoidCallback? onToggle,
+      VoidCallback? onIncrease,
+      VoidCallback? onDecrease}) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Material(
         color: Colors.blue[800],
         borderRadius: BorderRadius.circular(10),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(10),
-          onTap: () {},
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+          ),
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Icon(icon, color: Colors.white, size: 30),
-                Text(title, style: const TextStyle(color: Colors.white, fontSize: 20)),
-                if (onToggle != null)
+                const SizedBox(width: 30),
+                SizedBox(
+                  width: 200,
+                  child: Text(
+                    title,
+                    style: const TextStyle(color: Colors.white, fontSize: 20),
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+                if (onToggle != null) ...[
+                  const SizedBox(width: 40),
                   Switch(
                     value: value,
                     onChanged: (bool newValue) {
@@ -200,26 +161,29 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     activeColor: Colors.green,
                   )
-                else
+                ] else ...[
                   Row(
-                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       IconButton(
                         icon: const Icon(Icons.remove, color: Colors.white),
                         onPressed: onDecrease,
                       ),
-                      Text('$value', style: const TextStyle(color: Colors.white, fontSize: 20)),
+                      Text('$value',
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 20)),
                       IconButton(
                         icon: const Icon(Icons.add, color: Colors.white),
                         onPressed: onIncrease,
                       ),
                     ],
                   ),
+                ]
               ],
             ),
           ),
         ),
-      ),
+     ),
     );
   }
 }

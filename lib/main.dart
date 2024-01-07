@@ -60,7 +60,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
           ),
         ],
         currentIndex: _currentIndex,
-        selectedItemColor: const Color.fromARGB(255, 45, 51, 220),
+        selectedItemColor: Color.fromARGB(255, 45, 51, 220),
         onTap: (index) {
           setState(() {
             _currentIndex = index;
