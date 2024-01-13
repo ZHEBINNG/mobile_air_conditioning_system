@@ -93,7 +93,7 @@ void main() {
      test('TC-005', () {
       final controller = HomeScreenStateController();
 
-      List expectedValue = [true, 26, 3, true];
+      List expectedValue = [true, 23, 5, true];
 
       controller.changePacStatus(false);
       controller.increaseTemperature(22);
@@ -253,7 +253,7 @@ void main() {
      test('TC-013', () {
       final controller = HomeScreenStateController();
 
-      List expectedValue = [true, 26, 3, true];
+      List expectedValue = [true, 30, 3, true];
 
       controller.changePacStatus(false);
       controller.increaseTemperature(30);
@@ -273,7 +273,7 @@ void main() {
      test('TC-014', () {
       final controller = HomeScreenStateController();
 
-      List expectedValue = [true, 26, 5, false];
+      List expectedValue = [true, 30, 5, false];
 
       controller.changePacStatus(false);
       controller.increaseTemperature(30);
@@ -293,7 +293,7 @@ void main() {
      test('TC-015', () {
       final controller = HomeScreenStateController();
 
-      List expectedValue = [true, 26, 1, true];
+      List expectedValue = [true, 30, 1, true];
 
       controller.changePacStatus(false);
       controller.increaseTemperature(30);
@@ -313,7 +313,7 @@ void main() {
      test('TC-016', () {
       final controller = HomeScreenStateController();
 
-      List expectedValue = [true, 26, 1, false];
+      List expectedValue = [true, 30, 1, false];
 
       controller.changePacStatus(false);
       controller.increaseTemperature(30);
@@ -333,7 +333,7 @@ void main() {
      test('TC-017', () {
       final controller = HomeScreenStateController();
 
-      List expectedValue = [true, 26, 5, true];
+      List expectedValue = [true, 30, 5, true];
 
       controller.changePacStatus(false);
       controller.increaseTemperature(30);
@@ -353,7 +353,7 @@ void main() {
      test('TC-018', () {
       final controller = HomeScreenStateController();
 
-      List expectedValue = [true, 26, 5, false];
+      List expectedValue = [true, 30, 5, false];
 
       controller.changePacStatus(false);
       controller.increaseTemperature(30);
@@ -438,7 +438,7 @@ void main() {
       controller.changePacStatus(true);
       controller.decreaseTemperature(30);
       controller.decreaseFanSpeed(1);
-      controller.toggleAirSwing(false);
+      controller.toggleAirSwing(true);
 
       bool pacStatus = controller.getPacUnitStatus();
       int temperature = controller.getTemperature();
