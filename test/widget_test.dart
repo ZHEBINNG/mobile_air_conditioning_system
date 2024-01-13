@@ -3,7 +3,7 @@ import 'package:mobile_air_conditioning_system/controller/controller.dart';
 
 void main() {
   group('Mobile Air Conditioning System testing', () {
-    test('TC-001', () {
+    test('TC-02-001', () {
       final controller = HomeScreenStateController();
 
       // test input for status, temperature, fan speed, air swing
@@ -30,7 +30,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-    test('TC-002', () {
+    test('TC-02-002', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [true, 27, 1, false];
@@ -50,7 +50,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-     test('TC-003', () {
+     test('TC-02-003', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [true, 18, 1, true];
@@ -70,7 +70,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-     test('TC-004', () {
+     test('TC-02-004', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [true, 19, 1, false];
@@ -90,7 +90,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-     test('TC-005', () {
+     test('TC-02-005', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [true, 23, 5, true];
@@ -110,7 +110,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
     
-     test('TC-006', () {
+     test('TC-02-006', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [true, 18, 5, false];
@@ -130,7 +130,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-     test('TC-007', () {
+     test('TC-02-007', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [true, 16, 2, true];
@@ -150,7 +150,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-     test('TC-008', () {
+     test('TC-02-008', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [true, 16, 4, false];
@@ -170,7 +170,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-     test('TC-009', () {
+     test('TC-02-009', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [true, 16, 1, true];
@@ -190,7 +190,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-    test('TC-010', () {
+    test('TC-02-010', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [true, 16, 1, false];
@@ -210,7 +210,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-    test('TC-011', () {
+    test('TC-02-011', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [true, 16, 5, true];
@@ -230,7 +230,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-    test('TC-012', () {
+    test('TC-02-012', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [true, 16, 5, false];
@@ -250,7 +250,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-     test('TC-013', () {
+     test('TC-02-013', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [true, 30, 3, true];
@@ -270,7 +270,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-     test('TC-014', () {
+     test('TC-02-014', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [true, 30, 5, false];
@@ -290,7 +290,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-     test('TC-015', () {
+     test('TC-02-015', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [true, 30, 1, true];
@@ -310,7 +310,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-     test('TC-016', () {
+     test('TC-02-016', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [true, 30, 1, false];
@@ -330,7 +330,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-     test('TC-017', () {
+     test('TC-02-017', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [true, 30, 5, true];
@@ -350,7 +350,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-     test('TC-018', () {
+     test('TC-02-018', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [true, 30, 5, false];
@@ -370,7 +370,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-    test('TC-019', () {
+    test('TC-02-019', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [false, 18, 1, false];
@@ -390,7 +390,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-      test('TC-020', () {
+      test('TC-02-020', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [false, 23, 5, true];
@@ -410,7 +410,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-      test('TC-021', () {
+      test('TC-02-021', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [false, 29, 1, false];
@@ -430,7 +430,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-      test('TC-022', () {
+      test('TC-02-022', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [false, 30, 1, true];
@@ -450,7 +450,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-      test('TC-023', () {
+      test('TC-02-023', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [false, 16, 5, false];
@@ -470,7 +470,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-      test('TC-024', () {
+      test('TC-02-024', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [false, 26, 5, true];
@@ -490,7 +490,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-      test('TC-025', () {
+      test('TC-02-025', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [false, 16, 2, false];
@@ -510,7 +510,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-      test('TC-026', () {
+      test('TC-02-026', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [false, 16, 2, true];
@@ -530,7 +530,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-      test('TC-027', () {
+      test('TC-02-027', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [false, 16, 1, false];
@@ -550,7 +550,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-      test('TC-028', () {
+      test('TC-02-028', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [false, 16, 1, true];
@@ -570,7 +570,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-      test('TC-029', () {
+      test('TC-02-029', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [false, 16, 5, false];
@@ -590,7 +590,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-      test('TC-030', () {
+      test('TC-02-030', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [false, 16, 5, true];
@@ -610,7 +610,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-      test('TC-031', () {
+      test('TC-02-031', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [false, 30, 2, false];
@@ -630,7 +630,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-    test('TC-032', () {
+    test('TC-02-032', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [false, 30, 2, true];
@@ -650,7 +650,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-    test('TC-033', () {
+    test('TC-02-033', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [false, 30, 1, false];
@@ -670,7 +670,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-     test('TC-034', () {
+     test('TC-02-034', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [false, 30, 1, true];
@@ -690,7 +690,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-     test('TC-035', () {
+     test('TC-02-035', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [false, 30, 5, false];
@@ -710,7 +710,7 @@ void main() {
       expect(expectedValue, actualValue);
     });
 
-     test('TC-036', () {
+     test('TC-02-036', () {
       final controller = HomeScreenStateController();
 
       List expectedValue = [false, 30, 5, true];
